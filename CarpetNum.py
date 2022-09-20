@@ -1,0 +1,8 @@
+def solution(brown, yellow):
+    answer = []
+    
+    for i in range(1, int(yellow**(1/2)) + 1):
+        if yellow%i == 0 and i*2 + (yellow/i)*2 + 4 == brown:
+            answer.extend([yellow/i + 2, i+2])
+            
+    return answer
