@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Solution {
+public class RemoveDuplicateNum {
     public int[] solution(int []arr) {
         ArrayList<Integer> answer = new ArrayList<>();
         
