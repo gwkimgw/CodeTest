@@ -42,17 +42,16 @@ public class SelectionAlgorithm1{
 
     public void solution() throws Exception{
         BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sBuilder = new StringBuilder();
         StringTokenizer stringTokenizer = new StringTokenizer(bReader.readLine());
 
         int n = Integer.parseInt(stringTokenizer.nextToken());
         int k = Integer.parseInt(stringTokenizer.nextToken());
+        int[] arr = new int[n+1];
 
-        int[] arr = new int[n];
-
-        stringTokenizer = new StringTokenizer(bReader.readLine(), " ");
-
-        System.out.println(sBuilder);
+        stringTokenizer = new StringTokenizer(bReader.readLine());
+        for(int i=1;i<n;i++){
+            arr[i] = Integer.parseInt(stringTokenizer.nextToken());
+        }
     }
     
     public static void main(String[] args) throws Exception{
