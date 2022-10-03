@@ -19,11 +19,11 @@ public class Algorithm1{
             arr[i] = Integer.parseInt(stringTokenizer.nextToken());
         }
             
-        select(arr, 0, size-1, target);   
+        int swapCnt = 0;
+        select(arr, 0, size-1, target, swapCnt);   
     }
 
-	public static int select(int[] A, int p, int r, int q){
-        int swapCnt = 0;
+	public static int select(int[] A, int p, int r, int q, int swapCnt){
         int x = A[r];
         int i = p-1;
         
@@ -43,11 +43,11 @@ public class Algorithm1{
         int k = t-p+1;;
         
         if(q<k){
-            return select(A, p, t-1, q);
+            return select(A, p, t-1, q, swapCnt);
         }else if(q==k){
             return A[t];
         }else{
-            return select(A, t+1, r, q-k);
+            return select(A, t+1, r, q-k, swapCnt);
         }
 	}
 
