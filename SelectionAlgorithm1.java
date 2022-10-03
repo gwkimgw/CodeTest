@@ -45,8 +45,9 @@ public class SelectionAlgorithm1{
         StringTokenizer stringTokenizer = new StringTokenizer(bReader.readLine());
 
         int n = Integer.parseInt(stringTokenizer.nextToken());
-        int k = Integer.parseInt(stringTokenizer.nextToken());
-        int[] arr = new int[n+1];
+        int o = Integer.parseInt(stringTokenizer.nextToken());
+        int p = Integer.parseInt(stringTokenizer.nextToken());
+        int[] arr = new int[n];
 
         stringTokenizer = new StringTokenizer(bReader.readLine());
         for(int i=1;i<n;i++){
