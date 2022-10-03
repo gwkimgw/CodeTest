@@ -3,8 +3,6 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class SelectionAlgorithm1{
-    public static int swapCnt = 0;
-    
     public static void main(String[] args) throws Exception{
         BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer stringTokenizer = new StringTokenizer(bReader.readLine());
@@ -12,6 +10,7 @@ public class SelectionAlgorithm1{
         int n = Integer.parseInt(stringTokenizer.nextToken());
         int o = Integer.parseInt(stringTokenizer.nextToken());
         int p = Integer.parseInt(stringTokenizer.nextToken());
+        long swapCnt = 0;
         
         int[] arr = new int[n];
 
@@ -20,23 +19,27 @@ public class SelectionAlgorithm1{
             arr[i] = Integer.parseInt(stringTokenizer.nextToken());
         }
             
-        select(arr, 0, n-1, o, p);   
+        select(arr, 0, n-1, o, p, swapCnt);   
     }
 
-	public static int select(int[] A, int start, int end, int o, int p){
-        int pivot = partition(A, start, end, p);
+	public static int select(int[] A, int start, int end, int o, int p, Long swapCnt){
+        int pivot = partition(A, start, end, p, swapCnt);
         int k = pivot-start+1;
         
-        if(o<k){
-            return select(A, start, pivot-1, o, p);
-        }else if(o==k){
-            return A[pivot];
+        if(++swapCnt < p){    
+            if(o<k){
+                return select(A, start, pivot-1, o, p, swapCnt);
+            }else if(o==k){
+                return A[pivot];
+            }else{
+                return select(A, pivot+1, end, o-k, p, swapCnt);
+            }
         }else{
-            return select(A, pivot+1, end, o-k, p);
+            return -1;
         }
 	}
 
-	public static int partition(int[] A, int start, int end, int p){
+	public static int partition(int[] A, int start, int end, int p, long swapCnt){
         int x = A[end];
         int point = start-1;
         
@@ -44,15 +47,18 @@ public class SelectionAlgorithm1{
             if(A[j]<=x){
                 swap(A, ++point, j);
                 if(++swapCnt == p){
-                    System.out.println(A[point] + " " + A[p]);
+                    System.out.println(A[point] + " " + A[j]);
+                    break;
                 }
             };
         }
         if(point+1!=end){
-            swap(A, point+1, end);
-            if(++swapCnt < p){
+            if(++swapCnt == p){
+                System.out.println(A[point+1] + " " + A[end]);
+            }else if(swapCnt < p){
                 System.out.println(-1);
             }
+            swap(A, point+1, end);
         }
         
         return point+1;
