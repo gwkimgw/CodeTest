@@ -23,9 +23,25 @@ public class Algorithm1{
     }
 
 	public static int select(int[] A, int p, int r, int q){
-        int t = partition(A, p, r);
-        int k = t-p+1;
-
+        int swapCnt = 0;
+        int x = A[r];
+        int i = p-1;
+        
+        for(int j=p;j<r-1;j++){
+            if(A[j]<=x){
+                swap(A, ++i, j);
+                if(++swapCnt==kth) System.out.println(A[i]+" "+A[j]);
+            }
+        }
+        if(i+1!=r){
+            swap(A, i+1, r);
+            if(++swapCnt==kth) System.out.println(A[i+1]+" "+A[r]);
+            else if(swapCnt<kth) System.out.println(-1);
+        }  
+        
+        int t = i+1;
+        int k = t-p+1;;
+        
         if(q<k){
             return select(A, p, t-1, q);
         }else if(q==k){
@@ -34,30 +50,6 @@ public class Algorithm1{
             return select(A, t+1, r, q-k);
         }
 	}
-
-	public static int partition(int[] A, int p, int r){
-        int swapCnt = 0;
-        int x = A[r];
-        int i = p-1;
-        
-        for(int j=p;j<r-1;j++){
-            if(A[j]<=x){
-                swap(A, ++i, j);
-                if(++swapCnt == kth){
-                    System.out.println(A[i] + " " +A[j]);
-                }
-            }
-        }
-        if(i+1!=r){
-            swap(A, i+1, r);
-            if(++swapCnt == kth){
-                System.out.println(A[i+1] + " " +A[r]);
-            } else if (swapCnt < kth){
-                System.out.println(-1);
-            }
-        }
-        return i+1;
-    }
 
 	public static void swap(int[] A, int i, int j){
         int tmp = A[i];
