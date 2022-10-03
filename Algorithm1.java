@@ -36,8 +36,7 @@ public class Algorithm1{
         if(i+1!=r){
             swap(A, i+1, r);
             if(++swapCnt==kth) System.out.println(A[i+1]+" "+A[r]);
-            else if(swapCnt<kth) System.out.println(-1);
-        }  
+        }
         
         int t = i+1;
         int k = t-p+1;;
@@ -45,6 +44,7 @@ public class Algorithm1{
         if(q<k){
             return select(A, p, t-1, q, swapCnt);
         }else if(q==k){
+            if(swapCnt<kth) System.out.println(-1);
             return A[t];
         }else{
             return select(A, t+1, r, q-k, swapCnt);
