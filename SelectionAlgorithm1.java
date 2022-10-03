@@ -50,7 +50,7 @@ public class SelectionAlgorithm1{
         int[] arr = new int[n];
 
         stringTokenizer = new StringTokenizer(bReader.readLine());
-        for(int i=1;i<n;i++){
+        for(int i=0;i<n;i++){
             arr[i] = Integer.parseInt(stringTokenizer.nextToken());
         }
     }
