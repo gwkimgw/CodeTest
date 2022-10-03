@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class SelectionAlgorithm1{
+public class Algorithm1{
     public static void main(String[] args) throws Exception{
         BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer stringTokenizer = new StringTokenizer(bReader.readLine());
@@ -25,6 +25,7 @@ public class SelectionAlgorithm1{
 	public static int select(int[] A, int start, int end, int o, int p, Long swapCnt){
         int pivot = partition(A, start, end, p, swapCnt);
         int k = pivot-start+1;
+        System.out.println(k);
         
         if(++swapCnt < p){    
             if(o<k){
@@ -52,13 +53,14 @@ public class SelectionAlgorithm1{
                 }
             };
         }
+        
         if(point+1!=end){
+            swap(A, point+1, end);
             if(++swapCnt == p){
                 System.out.println(A[point+1] + " " + A[end]);
             }else if(swapCnt < p){
                 System.out.println(-1);
             }
-            swap(A, point+1, end);
         }
         
         return point+1;
