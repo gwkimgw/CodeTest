@@ -18,12 +18,28 @@ public class Algorithm1{
         for(int i=0;i<size;i++){
             arr[i] = Integer.parseInt(stringTokenizer.nextToken());
         }
-            
-        int swapCnt = 0;
-        select(arr, 0, size-1, target, swapCnt);   
+        
+        select(arr, 0, size-1, target, 0);   
     }
 
 	public static int select(int[] A, int p, int r, int q, int swapCnt){
+        int[] partArr = partition(A, p, r);
+        int t = partArr[0];
+        swapCnt = swapCnt + partArr[1];
+        int k = t-p+1;
+        
+        if(q<k){
+            return select(A, p, t-1, q, swapCnt);
+        }else if(q==k){
+            if(swapCnt<kth) System.out.println(-1);
+            return A[t];
+        }else{
+            return select(A, t+1, r, q-k, swapCnt);
+        }
+	}
+
+    public static int[] partition(int[] A, int p, int r){
+        int swapCnt = 0;
         int x = A[r];
         int i = p-1;
         
@@ -38,18 +54,8 @@ public class Algorithm1{
             if(++swapCnt==kth) System.out.println(A[i+1]+" "+A[r]);
         }
         
-        int t = i+1;
-        int k = t-p+1;;
-        
-        if(q<k){
-            return select(A, p, t-1, q, swapCnt);
-        }else if(q==k){
-            if(swapCnt<kth) System.out.println(-1);
-            return A[t];
-        }else{
-            return select(A, t+1, r, q-k, swapCnt);
-        }
-	}
+        return new int[]{i+1, swapCnt};
+    }
 
 	public static void swap(int[] A, int i, int j){
         int tmp = A[i];
