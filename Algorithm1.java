@@ -42,7 +42,7 @@ public class Algorithm1{
         int x = A[r];
         int i = p-1;
         
-        for(int j=p;j<r-1;j++){
+        for(int j=p;j<r;j++){
             if(A[j]<=x){
                 swap(A, ++i, j);
                 if(++swapCnt==kth) System.out.println(A[i]+" "+A[j]);
