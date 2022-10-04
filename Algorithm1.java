@@ -18,14 +18,14 @@ public class Algorithm1{
         for(int i=0;i<size;i++){
             arr[i] = Integer.parseInt(stringTokenizer.nextToken());
         }
-        
+
         select(arr, 0, size-1, target, 0);   
     }
 
 	public static int select(int[] A, int p, int r, int q, int swapCnt){
-        int[] partArr = partition(A, p, r);
+        int[] partArr = partition(A, p, r, swapCnt);
         int t = partArr[0];
-        swapCnt = swapCnt + partArr[1];
+        swapCnt = partArr[1];
         int k = t-p+1;
         
         if(q<k){
@@ -38,8 +38,7 @@ public class Algorithm1{
         }
 	}
 
-    public static int[] partition(int[] A, int p, int r){
-        int swapCnt = 0;
+    public static int[] partition(int[] A, int p, int r, int swapCnt){
         int x = A[r];
         int i = p-1;
         
