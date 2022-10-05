@@ -2,6 +2,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+//60172981 데이터테크놀로지 김건우
+//알고리즘 hw4
+
 public class Algorithm1{
     private static int size, target, kth;
     public static void main(String[] args) throws Exception{
