@@ -1,13 +1,13 @@
-public class JadenCase {
+class JadenCase {
     public String solution(String s) {
         StringBuilder answer = new StringBuilder();
-        String[] split = s.split(" ");
+        boolean first = true;
         
-        for(String i:split){
-            String ii = i.substring(0,1).toUpperCase() + i.substring(1).toLowerCase();
-            answer.append(" ").append(ii);
+        for(char j:s.toCharArray()){
+            answer.append(first ? Character.toUpperCase(j) : Character.toLowerCase(j));
+            first = (j == ' ') ? true : false;
         }
         
-        return answer.toString().trim();
+        return answer.toString();
     }
 }
