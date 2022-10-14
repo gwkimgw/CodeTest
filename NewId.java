@@ -1,4 +1,4 @@
-class Solution {
+class NewId {
     private String extendLen(String answer){
         while(answer.length() < 3){
             answer += answer.charAt(answer.length() - 1);
