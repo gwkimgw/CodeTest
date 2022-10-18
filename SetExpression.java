@@ -6,7 +6,7 @@ import java.util.*;
 
 public class SetExpression {
     static int[] N;
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws Exception{
         BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
