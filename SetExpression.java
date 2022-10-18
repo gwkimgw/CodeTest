@@ -4,7 +4,7 @@ import java.util.*;
 //60172981 데이터테크놀로지 김건우
 //알고리즘 HW-집합-22
 
-public class Solution {
+public class SetExpression {
     static int[] N;
     public static void main(String[] args) throws IOException{
         BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
