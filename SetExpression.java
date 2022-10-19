@@ -3,6 +3,7 @@ import java.util.*;
 
 //60172981 데이터테크놀로지 김건우
 //알고리즘 HW-집합-22
+//백준 1717
 
 public class SetExpression {
     static int[] N;
