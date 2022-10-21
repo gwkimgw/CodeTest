@@ -19,20 +19,14 @@ public class SetExpression {
             int command = Integer.parseInt(commands[0]);
             int a = Integer.parseInt(commands[1]);
             int b = Integer.parseInt(commands[2]);
-            if(command == 0){
-                union(a,b);
-            }else if(command == 1){
-                check(a,b);
-            }
+            if(command == 0) union(a,b);
+            else if(command == 1) check(a,b);
         }
     }
 
     public static int findParent(int x){
-        if(x == N[x]){
-            return N[x];
-        }else{
-            return N[x]=findParent(N[x]);
-        }
+        if(x == N[x]) return N[x];
+        else return N[x]=findParent(N[x]);
     }
 
     public static void union(int a, int b){
@@ -44,10 +38,7 @@ public class SetExpression {
     public static void check(int a, int b){
         int ap = findParent(a);
         int bp = findParent(b);
-        if(ap!=bp){
-            System.out.println("NO");
-        }else{
-            System.out.println("YES");
-        }
+        String answer = (ap!=bp) ? "NO" : "YES";
+        System.out.println(answer);
     }
 }
