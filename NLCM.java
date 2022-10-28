@@ -1,5 +1,3 @@
-import java.util.*;
-
 class NLCD {
     public int solution(int[] arr) {
         int answer = arr[0];
