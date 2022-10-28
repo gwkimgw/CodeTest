@@ -1,41 +1,16 @@
 import java.util.*;
 
-class NLCM {
+class NLCD {
     public int solution(int[] arr) {
-        int answer = 0;
-        
-        for(int i=0;i<arr.length;i++){
-            arr = divArr(arr, i);
-            System.out.println(Arrays.toString(arr));
-            i++;
-        }
-        
-        for(int k : arr){
-            if(answer > 0){
-                answer *= k;
-            } else {
-                answer = k;   
-            }
-        }
-        
+        int answer = arr[0];
+        for(int i=1;i<arr.length;i++){ answer = lcm(arr[i], answer); }
         return answer;
     }
-    
-    public static int[] divArr(int[] arr, int i){
-        ArrayList<Integer> intArr = new ArrayList<>();
-        for(int j=i;j<arr.length;j++){
-            if(arr[j]/arr[i]==1){
-                if(arr[j]%arr[i]==0){
-                    intArr.add(arr[j]);
-                    j++;
-                }
-                intArr.add(arr[j]/arr[i]);
-            }else{
-                intArr.add(arr[j]);
-            }
-        }
         
-        int[] finArr = intArr.stream().mapToInt(l -> l).toArray();
-        return finArr;
+    private static int lcm(int a, int b){ return a*b/gcd(a,b); }
+        
+    private static int gcd(int a, int b){
+        if(b==0) return a;
+        return gcd(b, a%b);
     }
 }
