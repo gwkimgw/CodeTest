@@ -1,16 +1,16 @@
+import java.util.Stack;
+
 class RemovePair{
     public int solution(String s){
-        StringBuilder sb = new StringBuilder(s);
+        Stack<Character> ss = new Stack<>();
         
-        for(int i=0;i<sb.length()-1;i++){
-            if(sb.charAt(i)==sb.charAt(i+1)){
-                sb.deleteCharAt(i);
-                sb.deleteCharAt(i);
-            }
-            System.out.println(sb.toString());
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            if(ss.isEmpty()) ss.push(c);
+            else if(ss.peek() == c) ss.pop();
+            else ss.push(c);
         }
         
-        int answer = (sb.length()==0) ? 1 : 0;
-        return answer;
+        return ss.isEmpty() ? 1 : 0;
     }
 }
