@@ -6,8 +6,7 @@ class RemovePair{
         
         for(int i=0;i<s.length();i++){
             char c = s.charAt(i);
-            if(ss.isEmpty()) ss.push(c);
-            else if(ss.peek() == c) ss.pop();
+            if(!ss.isEmpty() && ss.peek() == c) ss.pop();
             else ss.push(c);
         }
         
