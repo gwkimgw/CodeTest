@@ -10,12 +10,12 @@ public class MatrixChain{
     private static int[][] min;
     private static int[][] order;
     
-    public static int matrixChainOrder(int[] dims) {
+    public static void matrixChain(int[] dims){
         int n = dims.length-1;
         min = new int[n][n]; order = new int[n][n];
 
-        for (int l=1;l<n;l++) {
-            for (int i=0;i<n-l;i++){
+        for(int l=1;l<n;l++){
+            for(int i=0;i<n-l;i++){
                 int j = i+l;
                 min[i][j] = Integer.MAX_VALUE;
                 for(int k=i;k<j;k++){
@@ -27,10 +27,17 @@ public class MatrixChain{
                 }
             }
         }
-        return min[0][n-1];
+
+		System.out.println("m matrix:");
+		for(int i=0; i<min.length; i++){
+			for(int j=0; j<min.length; j++){
+				System.out.print(min[i][j]+ "\t");
+			}
+			System.out.println();
+		}
     }
 
-    private static String getOrder(int[][]s, int i, int j) {
+    private static String getOrder(int[][]s, int i, int j){
         if (i == j){
             return "A" + Integer.toString(i+1);
         }else{
@@ -48,7 +55,8 @@ public class MatrixChain{
 		int[] dims = Stream.of(br.readLine().split("x"))
 			.mapToInt(Integer::parseInt)
 			.toArray();
-        System.out.println(matrixChainOrder(dims)
-			+ "\n" + getOrder(order, 0, order.length-1));
+
+		matrixChain(dims);
+        System.out.println("최적 곱셈 순서 \n" + getOrder(order, 0, order.length-1));
 	}
 }
