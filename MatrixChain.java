@@ -3,8 +3,7 @@ import java.io.InputStreamReader;
 import java.util.stream.Stream;
 
 //60172981 데이터테크놀로지 김건우
-//알고리즘 HW-집합-22
-//백준 1822
+//알고리즘 HW#11
 
 public class MatrixChain{
     private static int[][] min;
