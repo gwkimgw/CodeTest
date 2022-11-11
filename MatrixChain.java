@@ -37,14 +37,14 @@ public class MatrixChain{
 		}
     }
 
-    private static String getOrder(int[][]s, int i, int j){
+    private static String getOrder(int[][] order, int i, int j){
         if (i == j){
             return "A" + Integer.toString(i+1);
         }else{
             StringBuilder sb = new StringBuilder();
             sb.append("(");
-            sb.append(getOrder(s, i, s[i][j]));
-            sb.append(getOrder(s, s[i][j] + 1, j));
+            sb.append(getOrder(order, i, order[i][j]));
+            sb.append(getOrder(order, order[i][j] + 1, j));
             sb.append(")");
             return sb.toString();
         }
