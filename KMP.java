@@ -26,6 +26,9 @@ public class KMP{
 				table[i] = idx;  
 			}
 		}
+		for (int k : table){
+			System.out.println(k);
+		} 
 		return table;
 	}
 	
